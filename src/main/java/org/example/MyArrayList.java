@@ -9,6 +9,16 @@ public class MyArrayList<T> {
     private int pointer = 0;
 
     /*
+    Comparator
+    */
+
+    public void sort(Comparator<? super T> comparator) {
+        Sort<T> sorter = new Sort<>(comparator);
+        sorter.sort(this);
+    }
+
+
+    /*
     Добавляет новый элемент в список. При гнеобходимости увеличение в два раза.
     */
     public void add(T item) {
@@ -16,8 +26,10 @@ public class MyArrayList<T> {
             resize(array.length*2); // увеличу в 2 раза, если достигли границ
         array[pointer++] = item;
     }
+
+
     /*
-    Добавляет новый элемент в список. При гнеобходимости увеличение в два раза.
+    Добавляет новый элемент в список по индексу. При гнеобходимости увеличение в два раза.
     */
 
     public void add(T item, int s) {
@@ -26,6 +38,7 @@ public class MyArrayList<T> {
         array[s]=item;
         pointer++;
     }
+
 
 
     /*
