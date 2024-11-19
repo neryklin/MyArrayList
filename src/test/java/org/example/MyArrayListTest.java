@@ -43,13 +43,14 @@ class MyArrayListTest {
         myArrayList.add(-3);
         Sort<Integer> sorted = new Sort<>(Comparator.naturalOrder());
         sorted.sort(myArrayList);
-        Assert.assertEquals(-3,myArrayList.get(0).intValue());
-        Assert.assertEquals(-2,myArrayList.get(1).intValue());
-        Assert.assertEquals(-1,myArrayList.get(2).intValue());
-        Assert.assertEquals(0,myArrayList.get(3).intValue());
-        Assert.assertEquals(1,myArrayList.get(4).intValue());
-        Assert.assertEquals(2,myArrayList.get(5).intValue());
-        Assert.assertEquals(3,myArrayList.get(6).intValue());
+        assertAll("Проверка сортировки массива",
+                () -> assertEquals(-3,myArrayList.get(0).intValue()),
+                () -> assertEquals(-2,myArrayList.get(1).intValue()),
+                () -> assertEquals(-1,myArrayList.get(2).intValue()),
+                () -> assertEquals(0,myArrayList.get(3).intValue()),
+                () -> assertEquals(1,myArrayList.get(4).intValue()),
+                () -> assertEquals(2,myArrayList.get(5).intValue()),
+                () -> assertEquals(3,myArrayList.get(6).intValue()));
 
     }
 
